@@ -14,7 +14,7 @@ QtTest::QtTest(QWidget *parent)
 	//connect(this, SIGNAL(signal1()), this, SLOT(btnClick()));
 
 	QFileSystemModel* mode = new QFileSystemModel();
-	mode->setRootPath("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\QtTest\\Win32\\applications");
+	mode->setRootPath("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\LaunchManage\\Win32\\applications");
 
 	mModel = new QStandardItemModel();
 	mModel->setColumnCount(2);
@@ -33,7 +33,7 @@ QtTest::QtTest(QWidget *parent)
 	QFileSystemWatcher *watcher;
 	watcher = new QFileSystemWatcher();
 	//watcher->addPath("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\QtTest\\Win32\\applications");
-	bool res = watcher->addPath(BianMa->toUnicode("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\QtTest\\Win32\\applications\\app1 - 副本 (24).desktop"));
+	bool res = watcher->addPath(BianMa->toUnicode("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\LaunchManage\\Win32\\applications\\app1 - 副本 (24).desktop"));
 	connect(watcher, SIGNAL(directoryChanged(QString)), this, SLOT(directoryChanged(QString)));
 	connect(watcher, SIGNAL(fileChanged(QString)), this, SLOT(fileChanged(QString)));
 }
@@ -108,7 +108,7 @@ void QtTest::btnClick()
 void QtTest::loadDir()
 {
 	//DesktopItemDir desktopItemDir(QString("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\QtTest\\QtTest"));
-	mDesktopItemDir.setPath("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\QtTest\\Win32\\applications");
+	mDesktopItemDir.setPath("D:\\Users\\V\\Documents\\Visual Studio 2013\\Projects\\LaunchManage\\Win32\\applications");
 	int errcode;
 	mDesktopItemDir.reload(errcode);
 
