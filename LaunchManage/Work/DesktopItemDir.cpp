@@ -74,6 +74,17 @@ bool DesktopItemDir::setValue(const QString& fileName, const QString& key, const
 	{
 		DesktopItem* item = *it;
 		item->setValue(key, value);
+		return true;
 	}
-	return true;
+	return false;
+}
+
+void DesktopItemDir::save(const QString& fileName)
+{
+	QList<DesktopItem*>::iterator it = std::find(mItemList.begin(), mItemList.end(), fileName);
+	if (it != mItemList.end())
+	{
+		DesktopItem* item = *it;
+		item->save();
+	}
 }

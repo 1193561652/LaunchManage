@@ -121,3 +121,49 @@ bool DesktopItem::setValue(const QString& key, const QString value)
 	}
 	return true;
 }
+
+bool DesktopItem::save()
+{
+	QString filePath = mFileInfo.absoluteFilePath();
+	QFile f(filePath);
+	if (!f.open(QIODevice::ReadWrite | QIODevice::Text))
+	{
+		return false;
+	}
+
+	QList<QString> listContent;
+	QTextStream txtInput(&f);
+	QString lineStr;
+	while (!txtInput.atEnd())
+	{
+		lineStr = txtInput.readLine();
+		QRegExp rxlen("\\s*([^\\f\\n\\r\\t\\v]+)\\s*=\\s*([^\\f\\n\\r\\t\\v]+)");
+		int pos = rxlen.indexIn(lineStr);
+		if (pos > -1)
+		{
+			QString key = rxlen.cap(1);
+			QString value = rxlen.cap(2);
+			int index = DesktopItem::findKeyFromString(key);
+			if (index != -1)
+			{
+				listContent.push_back(key + "=" + mValueArray[index]);
+			}
+			else
+			{
+				listContent.push_back(lineStr);
+			}
+		}
+		else
+		{
+			listContent.push_back(lineStr);
+		}
+	}
+
+	txtInput.seek(0);
+	for (auto it = listContent.begin(); it != listContent.end(); it++)
+	{
+		txtInput << (*it) << "\n";
+	}
+	f.flush();
+	f.close();
+}

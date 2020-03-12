@@ -14,6 +14,7 @@ public:
 	QString getFileName() const;
 	QString getValueFromIndex(const int index) const;
 	bool setValue(const QString& key, const QString value);
+	bool save();
 
 	static int findKeyFromString(const QString key);
 	static QString findKeyFromIndex(const int index);

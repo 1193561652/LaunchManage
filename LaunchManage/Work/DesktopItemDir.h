@@ -19,6 +19,7 @@ public:
 	QList<DesktopItem*> getItemList() const;
 
 	bool setValue(const QString& fileName, const QString& key, const QString& value);
+	void save(const QString& fileName);
 protected:
 	QString mPath;
 
