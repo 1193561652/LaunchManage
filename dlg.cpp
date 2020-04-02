@@ -2,7 +2,7 @@
 
 Dlg::Dlg()
 {
-	ui.setupUi(this);
+    ui.setupUi(this);
 }
 
 Dlg::~Dlg()

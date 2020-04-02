@@ -6,14 +6,14 @@
 
 class Dlg : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	Dlg();
-	~Dlg();
+    Dlg();
+    ~Dlg();
 
 protected:
-	Ui_Dialog	ui;
+    Ui_Dialog   ui;
 };
 
 #endif

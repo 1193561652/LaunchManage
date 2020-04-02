@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>QtTestClass</class>
- <widget class="QMainWindow" name="QtTestClass">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -14,7 +14,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>QtTest</string>
+   <string>MainWindow</string>
   </property>
   <property name="styleSheet">
    <string notr="true"/>
@@ -46,9 +46,7 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="qttest.qrc"/>
- </resources>
+ <resources/>
  <connections/>
  <slots>
   <slot>btnClick()</slot>

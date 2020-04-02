@@ -1,6 +1,6 @@
 #ifndef DESKTOPITEM_H_
 #define DESKTOPITEM_H_
-#include <qfileinfo>
+#include <qfileinfo.h>
 
 #define KEY_COUNT	9
 
